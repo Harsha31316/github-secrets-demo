@@ -1,0 +1,27 @@
+
+name: Environment Specific Values
+
+on:
+  workflow_dispatch:
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - name: Display development value
+        run: echo "APP_MODE=${{ vars.APP_MODE }}"
+
+  testing:
+    runs-on: ubuntu-latest
+    environment: Testing
+    steps:
+      - name: Display testing value
+        run: echo "APP_MODE=${{ vars.APP_MODE }}"
+
+  production:
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - name: Display production value
+        run: echo "APP_MODE=${{ vars.APP_MODE }}"
